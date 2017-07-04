@@ -1,0 +1,19 @@
+{%  load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{%  block title %}{% endblock %}</title>
+    <link href="{% static "css/blog.css" %}" rel="stylesheet">
+</head>
+<body>
+    <div id="content">
+        {%  block content %}
+        {%  endblock %}
+    </div>
+    <div id="sidebar">
+        <h2>Mój blog</h2>
+            <p>To jest mój pierwszy projekt w Django :)</p>
+    </div>
+</body>
+</html>

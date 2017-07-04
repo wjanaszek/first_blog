@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 
 class PublishedManager(models.Manager):
     def get_query_set(self):
@@ -23,6 +24,13 @@ class Post(models.Model):
 
     objects = models.Manager()
     published = PublishedManager()
+
+    def get_absolute_url(self):
+        return reverse('MyBlg:post_detail',
+                       args=[self.publish.year,
+                             self.publish.strftime('%m'),
+                             self.publish.strftime('%d'),
+                             self.slug])
 
     class Meta:
         ordering = ('-publish',)
