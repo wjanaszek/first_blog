@@ -1,0 +1,19 @@
+{% extends "MyBlg/base.html" %}
+
+{% block title %}Udostępnij post{% endblock %}
+
+{% block content %}
+    {% if sent %}
+    <h1>Wiadomość e-mail została wysłana</h1>
+    <p>
+        Wysłanie posta "{{ post.title }}" do {{ cd.to }} zakończyło się powodzeniem.
+    </p>
+    {% else %}
+    <h1>Udostępnij "{{ post.title }}" przez email</h1>
+    <form action="." method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="submit" value="Wyślij wiadomość email">
+    </form>
+    {% endif %}
+{% endblock %}
