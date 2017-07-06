@@ -124,6 +124,6 @@ STATIC_URL = '/static/'
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'trash.wjanaszek@gmail.com'
-EMAIL_HOST_PASSWORD = '5klopsik5' # not known
+EMAIL_HOST_PASSWORD = '*****' # not known
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
