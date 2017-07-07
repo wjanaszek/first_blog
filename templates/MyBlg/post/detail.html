@@ -1,5 +1,5 @@
 {% extends "MyBlg/base.html" %}
-
+{% load blog_tags %}
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
@@ -31,7 +31,7 @@
             <p class="info">
                 Komentarz {{ forloop.counter }} dodany przez {{ comment.name }} {{ comment.created }}
             </p>
-            {{ comment.body|linebreaks }}
+            {{ comment.body|markdown }}
         </div>
         {% empty %}
             <p>Nie ma jeszcze żadnych komentarzy do posta</p>
