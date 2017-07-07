@@ -1,4 +1,5 @@
-{%  load staticfiles %}
+{% load blog_tags %}
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,20 @@
     </div>
     <div id="sidebar">
         <h2>Mój blog</h2>
-            <p>To jest mój pierwszy projekt w Django :)</p>
+            <p>To jest mój pierwszy projekt w Django :). Dotychczas opublikowałem {% total_posts %} postów.</p>
+
+        <h3>Najnowsze posty</h3>
+        {% show_latest_posts 3 %}
+
+        <h3>Najczęściej komentowane posty</h3>
+        {% get_most_commented_posts 3 as most_commented_posts %}
+        <ul>
+            {% for post in most_commented_posts %}
+            <li>
+                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
     </div>
 </body>
 </html>
